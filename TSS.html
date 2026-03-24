@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torre Santa Susanna - Storia, Cultura e Agricoltura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4a5d23', // Olive green
+                        secondary: '#8b7355', // Earthy brown
+                        light: '#f4f1ea', // Sand/stone
+                        dark: '#2c3e20'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f1ea;
+        }
+        
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Merriweather', serif;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://static.wixstatic.com/media/a96433_c3e00a80f7804ab7b3b243422dc99bc1~mv2.jpg/v1/fill/w_649,h_370,al_c,lg_1,q_80/a96433_c3e00a80f7804ab7b3b243422dc99bc1~mv2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .image-hover {
+            transition: transform 0.5s ease;
+        }
+        
+        .image-hover:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased selection:bg-primary selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-md transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center gap-2">
+                        <i class="fa-solid fa-leaf text-primary text-2xl"></i>
+                        <span class="font-serif font-bold text-xl text-dark hidden sm:block">Torre Santa Susanna</span>
+                        <span class="font-serif font-bold text-xl text-dark sm:hidden">TSS</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#storia" class="text-gray-600 hover:text-primary font-medium transition-colors">Storia</a>
+                    <a href="#castello" class="text-gray-600 hover:text-primary font-medium transition-colors">Il Castello</a>
+                    <a href="#santuario" class="text-gray-600 hover:text-primary font-medium transition-colors">Santuario</a>
+                    <a href="#frantoi" class="text-gray-600 hover:text-primary font-medium transition-colors">Frantoi Ipogei</a>
+                    <a href="#masserie" class="text-gray-600 hover:text-primary font-medium transition-colors">Masserie</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#storia" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Storia</a>
+                <a href="#castello" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Il Castello</a>
+                <a href="#santuario" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Santuario</a>
+                <a href="#frantoi" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Frantoi Ipogei</a>
+                <a href="#masserie" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Masserie</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg h-screen flex items-center justify-center text-center px-4">
+        <div class="max-w-4xl fade-in pt-20">
+            <span class="text-primary font-semibold tracking-wider uppercase bg-white/90 px-4 py-1 rounded-full mb-6 inline-block shadow-lg">Benvenuti in Puglia</span>
+            <h1 class="text-5xl md:text-7xl text-white font-bold mb-6 drop-shadow-lg leading-tight">Torre Santa Susanna</h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto drop-shadow-md font-light">
+                Un viaggio tra il patrimonio storico, i misteri del sottosuolo e l'innovazione agricola nel cuore del Salento.
+            </p>
+            <a href="#storia" class="bg-primary hover:bg-dark text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 mx-auto w-max">
+                Inizia l'esplorazione <i class="fa-solid fa-arrow-down"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Section 1: Storia -->
+    <section id="storia" class="py-24 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-sm font-bold text-primary tracking-widest uppercase mb-2">Le Origini</h2>
+                    <h3 class="text-4xl font-serif font-bold text-gray-900 mb-6">Il Granaio dei Messapi</h3>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Teocrito di Siracusa (315-260 a.C.) immaginava Demetra tenere tra le mani spighe e papaveri. C'è da credere che i campi attorno a Torre Santa Susanna non deludessero la dea delle messi. I Messapi (V-IV sec. a.C.), suoi adoratori, vi edificarono l'ammasso fortificato del loro oro: il grano.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Le origini della sua fondazione sono incerte ma antichissime. La leggenda narra che Annibale avesse posto qui uno dei suoi accampamenti per combattere gli Oritani, in una zona oggi nota come "La Sconfitta". Oggi il maggior valore di questa terra non è più solo in superficie, ma nascosto nelle cripte basiliane e nei magnifici frantoi ipogei.
+                    </p>
+                </div>
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl group">
+                    <img src="https://degustibusitinera.it/images/2017/GRANI_ANTICHI/graniantichititolo.JPG" alt="Campi di grano e papaveri" class="w-full h-[500px] object-cover image-hover">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Il Castello -->
+    <section id="castello" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center flex-col-reverse md:flex-row-reverse">
+                <div class="order-1 md:order-2">
+                    <h2 class="text-sm font-bold text-primary tracking-widest uppercase mb-2">Architettura Fortificata</h2>
+                    <h3 class="text-4xl font-serif font-bold text-gray-900 mb-6">Il Castello e Palazzo Baronale</h3>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Edificato nel XVI secolo con funzioni difensive, il castello ha visto succedersi numerose famiglie nobiliari. Ristrutturato dai Conti Filo e dotato di eleganti merli seicenteschi e un portale bugnato, custodisce al suo interno una cappella voluta da Massenzio Filo Senior.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Dopo un lungo periodo di degrado seguito all'acquisizione da parte della famiglia D'Ippolito nel 1947, durante il quale fu utilizzato persino come lazzaretto e scuola, l'edificio è tornato al suo antico splendore nel 2003. Acquistato dalla famiglia Trinchera, oggi ospita un elegantissimo B&B Resort.
+                    </p>
+                    <div class="bg-gray-50 p-4 border-l-4 border-secondary rounded-r-lg">
+                        <p class="text-sm text-gray-700 italic">
+                            Curiosità: Di fronte alla facciata principale, fino all'Ottocento, svettava la Torre Osanna innalzata da Carlo I d'Angiò, oggi sostituita da una colonna commemorativa.
+                        </p>
+                    </div>
+                </div>
+                <div class="order-2 md:order-1 relative rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/7747932.jpg?k=c279753d62c66f1fa6c1562569e684ac6c11bd3ab0a2330ff2652a0483294779&o=" alt="Castello e architettura fortificata" class="w-full h-[550px] object-cover image-hover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Santuario -->
+    <section id="santuario" class="py-24 bg-dark text-white relative">
+        <div class="absolute inset-0 bg-[url('https://lh5.googleusercontent.com/proxy/FA97Wr7dKwiApNlyjPlJGRRFo8mi63pt9L7JSyoB1NEu-VCwP6vhD5C09e_CxKRwpFxeJ0V8WpktB6FybYugcgE')] bg-cover bg-center opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-sm font-bold text-gray-300 tracking-widest uppercase mb-2">I Luoghi di Culto</h2>
+            <h3 class="text-4xl font-serif font-bold mb-8">Santuario di Santa Maria di Galaso</h3>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-xl text-gray-200 mb-8 leading-relaxed font-light">
+                    Un luogo di forte spiritualità la cui prima costruzione risale alla fine del 1400, evolutosi poi nel tempo fino al '900. I torresi sono profondamente legati a questo santuario per via di un'antica devozione verso la Vergine di Galaso.
+                </p>
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl text-left">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-primary/80 p-3 rounded-full shrink-0">
+                            <i class="fa-solid fa-hands-praying text-xl text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Il Primo Miracolo</h4>
+                            <p class="text-gray-300 leading-relaxed">
+                                Le radici culturali e religiose di questo sito sono strettamente intrecciate al primo miracolo ivi avvenuto, che ha reso il santuario un punto di riferimento imperdibile nel "Cammino con la Storia" della Pro Loco locale.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Frantoi Ipogei -->
+    <section id="frantoi" class="py-24 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-primary tracking-widest uppercase mb-2">Torre Sotterranea</h2>
+                <h3 class="text-4xl font-serif font-bold text-gray-900 mb-4">I Frantoi Ipogei ("Lu Trappitu")</h3>
+                <p class="max-w-2xl mx-auto text-gray-600 text-lg">
+                    Scavati a mano dai "foggiari", questi antri sotterranei rappresentano i progenitori della rivoluzione industriale salentina.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tipo 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://lh3.googleusercontent.com/proxy/6C68AeWqT_9VXYHwSmS73P1eUfuRQtwUGRVS6GR6BhuI2rf6L99Y3-CsKkWmRuEvlyLUiQ7hmKVw8CdM1gin-d__" alt="Frantoio Ipogeo" class="w-full h-48 object-cover">
+                    <div class="p-8">
+                        <span class="text-xs font-bold text-primary uppercase">Fino al 1800</span>
+                        <h4 class="text-2xl font-serif font-bold text-gray-900 mt-2 mb-4">Frantoio Ipogeo Verticale</h4>
+                        <p class="text-gray-600">Ricavato all'interno di banchi tufacei o calcarei per creare un ambiente secco e caldo, ideale per il distacco dell'olio. Strutture come quelle scoperte in Via Latiano e Largo Moccia.</p>
+                    </div>
+                </div>
+                <!-- Tipo 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://terradeimessapi.it/wp-content/uploads/2016/08/frantoio-Semi-ipogeo-Mesagne_1.jpg" alt="Frantoio Semi-Ipogeo" class="w-full h-48 object-cover">
+                    <div class="p-8">
+                        <span class="text-xs font-bold text-secondary uppercase">Dal 1800 al 1900</span>
+                        <h4 class="text-2xl font-serif font-bold text-gray-900 mt-2 mb-4">Frantoio Semi-Ipogeo</h4>
+                        <p class="text-gray-600">Ambienti con coperture a volta in conci di tufo (carparo) che poggiano sulla roccia o su murature in alzato, segnando l'evoluzione delle tecniche di estrazione.</p>
+                    </div>
+                </div>
+                <!-- Tipo 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://www.frantoiodonati.it/wp-content/uploads/2017/03/FRANTOIO-ANTICO.jpg" alt="Frantoio Industriale" class="w-full h-48 object-cover">
+                    <div class="p-8">
+                        <span class="text-xs font-bold text-gray-500 uppercase">Dal 1900 in poi</span>
+                        <h4 class="text-2xl font-serif font-bold text-gray-900 mt-2 mb-4">Frantoio Industriale</h4>
+                        <p class="text-gray-600">L'uscita definitiva dal sottosuolo. Tutti gli ambienti vengono costruiti al di sopra del piano di campagna, modernizzando l'antica arte olearia torrese.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-white rounded-2xl p-6 shadow-md border border-gray-100 flex items-center justify-between flex-wrap gap-4">
+                <div class="flex items-center gap-4">
+                    <i class="fa-solid fa-jar text-3xl text-secondary"></i>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Le Antiche Unità di Misura</h4>
+                        <p class="text-sm text-gray-500">La Mina (8 kg) • L'Ottu Pignatieddu (4 kg) • Lu Pignatieddu (0.5 kg)</p>
+                    </div>
+                </div>
+                <a href="#" class="text-primary font-bold hover:underline">Scopri di più sul restauro di Largo Moccia &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Masserie e Agricoltura -->
+    <section id="masserie" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-sm font-bold text-primary tracking-widest uppercase mb-2">Tradizione e Innovazione</h2>
+                    <h3 class="text-4xl font-serif font-bold text-gray-900 mb-6">Le Masserie: Il Cuore Agricolo</h3>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Le masserie di Torre Santa Susanna, come <strong class="text-dark">Masseria Le Torri</strong> e <strong class="text-dark">Masseria Pezzaviva</strong>, non sono solo luoghi di conservazione storica, ma esempi brillanti di agricoltura moderna e sostenibile.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4 p-6 bg-light rounded-xl border-l-4 border-primary">
+                            <div class="text-primary text-2xl mt-1"><i class="fa-solid fa-leaf"></i></div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Produzione a Ciclo Chiuso</h4>
+                                <p class="text-gray-600">A Pezzaviva nulla va sprecato. Gli scarti della cantina, del caseificio (il siero), dell'olio e della salsa finiscono nell'impianto di biogas. Un ecosistema agricolo autosufficiente.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-6 bg-light rounded-xl border-l-4 border-secondary">
+                            <div class="text-secondary text-2xl mt-1"><i class="fa-solid fa-solar-panel"></i></div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Energia Rinnovabile</h4>
+                                <p class="text-gray-600">Affiancando i 200 kW già esistenti, nuovi impianti fotovoltaici da 300 kW e colonnine di ricarica alimentano i mezzi per il trasporto dei prodotti (olio leccino e lecciana, vino, verdure).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://cianfrusaglia.wordpress.com/wp-content/uploads/2019/02/img_20190225_152731.jpg" alt="Campagna e Agricoltura" class="w-full h-64 object-cover rounded-2xl shadow-md mt-12 image-hover">
+                    <img src="https://lh6.googleusercontent.com/-F-fTdqkdokQ/VbFhJ_eNZRI/AAAAAAAADG0/_CXlB7TzSrUMcVvN4A2JujRFrDk4CVWvA/w800-h800-k/" alt="Vigneti e vino" class="w-full h-64 object-cover rounded-2xl shadow-md image-hover">
+                    <img src="https://www.slowfood.it/wp-content/uploads/2018/03/Puglia.jpg" alt="Olive e Olio" class="w-full h-64 object-cover rounded-2xl shadow-md mt-12 image-hover">
+                    <img src="https://fin-int.com/wp-content/uploads/2025/04/Torre-Santa-Susanna-2-768x576.jpg" alt="Pannelli Solari" class="w-full h-64 object-cover rounded-2xl shadow-md image-hover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-gray-300 py-12 border-t-4 border-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-leaf text-primary text-2xl"></i>
+                        <span class="font-serif font-bold text-xl text-white">Torre S. Susanna</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        Un progetto per valorizzare il patrimonio storico, culturale e agricolo del comune di Torre Santa Susanna, Provincia di Brindisi.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Navigazione Rapida</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#storia" class="hover:text-primary transition-colors">La Storia & I Messapi</a></li>
+                        <li><a href="#castello" class="hover:text-primary transition-colors">Castello Baronale</a></li>
+                        <li><a href="#frantoi" class="hover:text-primary transition-colors">Frantoi Ipogei</a></li>
+                        <li><a href="#masserie" class="hover:text-primary transition-colors">Le Masserie Locali</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Info & Contatti</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><i class="fa-solid fa-location-dot mr-2 w-4"></i> Piazza Umberto I, Torre S.S. (BR)</li>
+                        <li><i class="fa-solid fa-envelope mr-2 w-4"></i> info@turismotorre.it</li>
+                        <li><i class="fa-solid fa-landmark mr-2 w-4"></i> Pro Loco "In Cammino con la Storia"</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2026 Torre Santa Susanna Tour. Basato sui documenti del patrimonio locale.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook text-lg"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('bg-white/95', 'bg-white');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.replace('bg-white', 'bg-white/95');
+            }
+        });
+    </script>
+</body>
+</html>
